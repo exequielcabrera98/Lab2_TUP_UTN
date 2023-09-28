@@ -18,16 +18,19 @@ public abstract class Employee implements Impuesto{
     public void setName() {
         Scanner scanner = new Scanner(System.in);
         this.name = scanner.next();
+        scanner.close();
     }
 
     public void setId() {
         Scanner scanner = new Scanner(System.in);
         this.id = scanner.nextInt();
+        scanner.close();
     }
 
     public void setBase_salary() {
         Scanner scanner = new Scanner(System.in);
         this.base_salary = scanner.nextDouble();
+        scanner.close();
     }
 
     public double getBase_salary() {
@@ -96,6 +99,7 @@ class HourlyEmployee extends Employee implements Impuesto{
     public void setHours_worked() {
         Scanner scanner = new Scanner(System.in);
         this.hours_worked = scanner.nextInt();
+        scanner.close();
     }
 
     public int getHours_worked() {
@@ -132,6 +136,7 @@ class CommissionEmployee extends Employee implements Impuesto{
     public void setSales_made() {
         Scanner scanner = new Scanner(System.in);
         this.sales_made = scanner.nextDouble();
+        scanner.close();
     }
 
     public double getSales_made() {
@@ -183,6 +188,7 @@ class EmployeeManager {
             default:
                 System.out.println("La opción ingresada no corresponde a una categoría de empleado.");
         }
+        scanner.close();
     }
 
     void removeEmployee(){
@@ -190,6 +196,7 @@ class EmployeeManager {
         System.out.println("Ingrese la ID del empleado que desea eliminar:\n");
         int id = scanner.nextInt();
         staff.removeIf(empleado -> empleado.id == id);
+        scanner.close();
     }
 
     void editEmployee(){
@@ -201,8 +208,7 @@ class EmployeeManager {
             if(empleado.id == id){
                 System.out.println("Nombre:");
                 empleado.setName();
-                System.out.println("ID:");
-                empleado.setId();
+
                 if(empleado instanceof HourlyEmployee){
                     System.out.println("Horas trabajadas:");
                     ((HourlyEmployee) empleado).setHours_worked();
@@ -221,6 +227,7 @@ class EmployeeManager {
                 System.out.println("El ID ingresado no corresponde a ningún empleado registrado.");
             }
         }
+        scanner.close();
     }
 
     void viewEmployees(){

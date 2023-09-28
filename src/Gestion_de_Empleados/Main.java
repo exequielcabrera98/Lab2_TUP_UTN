@@ -23,6 +23,6 @@ public class Main {
             System.out.println("¿Realizar otra operación?\n1- Si\n2- No");
             iniciar = scanner.nextInt();
         }while (iniciar == 1);
-
+        scanner.close();
     }
 }
